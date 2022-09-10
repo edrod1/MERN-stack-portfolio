@@ -1,32 +1,23 @@
-import './App.css';
-import { useState, useEffect } from "react";
-import Footer from './components/Footer';
-import Header from './components/Header';
 
-//functions
-import { getTest } from "./functions/test";
-
+import React from "react";
+import Navbar from "./components/Navbar";
+import About from "./components/pages/About";
+import Contact from "./components/pages/Contact";
+import Home from "./components/pages/Home";
+import { Route, Routes } from "react-router-dom";
 
 function App() {
-  const [data, setData] = useState("Hello World!");
-
-  useEffect(() => {
-    getTest()
-      .then((res) => {
-        setData(res.message);
-        console.log(res);
-      })
-      .catch((err) => console.log(err));
-  }, []);
   return (
-    <div className="App">
-      <Header />
-      <body>
-        <h1>{data}</h1>
-      </body>
-
-      <Footer />
-    </div>
+    <>
+      <Navbar />
+      <div className="container">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/about" element={<About />} />
+        </Routes>
+      </div>
+    </>
   );
 
 
