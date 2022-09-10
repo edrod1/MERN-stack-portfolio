@@ -4,7 +4,8 @@
 /node_modules
 /.pnp
 .pnp.js
-
+edgar-codes-client\node_modules
+edgar-codes-server\node_modules
 # testing
 /coverage
 
@@ -18,6 +19,7 @@
 .env.test.local
 .env.production.local
 .env
+edgar-codes-server\.env
 
 npm-debug.log*
 yarn-debug.log*
