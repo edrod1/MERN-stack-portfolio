@@ -8,8 +8,9 @@ const Navbar = () => {
                 to="/" className="site-title">Site Name
             </Link>
             <ul>
-                <CustomLink to="/contact">Pricing</CustomLink>
+                <CustomLink to="/contact">Contact</CustomLink>
                 <CustomLink to="/about">About</CustomLink>
+                <CustomLink to="/projects">Projects</CustomLink>
             </ul>
 
         </nav>
