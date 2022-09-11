@@ -5,12 +5,12 @@ const Navbar = () => {
     return (
         <nav className="nav">
             <Link
-                to="/" className="site-title">Site Name
+                to="/" className="site-title">Edgar Codes
             </Link>
             <ul>
-                <CustomLink to="/contact">Contact</CustomLink>
-                <CustomLink to="/about">About</CustomLink>
                 <CustomLink to="/projects">Projects</CustomLink>
+                <CustomLink to="/about">About</CustomLink>
+                <CustomLink to="/contact">Contact</CustomLink>
             </ul>
 
         </nav>
