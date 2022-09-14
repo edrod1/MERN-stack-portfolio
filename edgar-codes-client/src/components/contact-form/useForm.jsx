@@ -1,5 +1,9 @@
 import { React, useState, useEffect } from 'react'
 import Validation from './validation';
+import { TextField, Typography, Box, CssBaseline, Container, Button } from "@mui/material"
+import SendIcon from '@mui/icons-material/Send';
+
+
 
 const Form = () => {
 
@@ -17,7 +21,7 @@ const Form = () => {
         if (Object.keys(inputErrors).length === 0 && isSubmit) {
             console.log(inputValue);
         }
-    }, [inputErrors]);
+    }, [inputErrors, isSubmit, inputValue]);
 
 
     const handleNameInput = (event) => {
@@ -56,50 +60,60 @@ const Form = () => {
 
     }
 
+    //--------------------------------------------------------------------
+
 
     return (
-        <>
-            <pre>{JSON.stringify(inputValue, undefined, 2)}</pre>
+        <div >
+            {/* <pre>{JSON.stringify(inputValue, undefined, 2)}</pre> */}
             {Object.keys(inputErrors).length === 0 && isSubmit ? <Validation /> : null}
-            <form onSubmit={handleSubmit}>
-                <div>
-                    <label>Name</label>
-                    <input
-                        className="form-name"
-                        id="name"
-                        type="text"
-                        value={inputValue.name}
-                        placeholder="Enter name"
-                        onChange={handleNameInput}
-                    />
-                </div>
-                <p>{inputErrors.name}</p>
-                <div>
-                    <label>E-mail</label>
-                    <input
-                        className="form-email"
-                        id="email"
-                        type="text"
-                        value={inputValue.email}
-                        placeholder="Your email"
-                        onChange={handleEmailInput}
-                    />
-                </div>
-                <p>{inputErrors.email}</p>
-                <div>
-                    <label>Your Message</label>
-                    <input
-                        className="form-message"
-                        type="text"
-                        value={inputValue.message}
-                        placeholder="What's your message for me?"
-                        onChange={handleMessageInput}
-                    />
-                </div>
-                <p>{inputErrors.message}</p>
-                <button className="btn-submit" type="submit"> Submit</button>
-            </form>
-        </>
+
+            <Container maxWidth="sm"  >
+                <Box component="form" onSubmit={handleSubmit}>
+                    <div>
+                        <TextField
+                            label="Name"
+                            className="form-name"
+                            id="name"
+                            type="text"
+                            value={inputValue.name}
+                            placeholder="Enter name"
+                            onChange={handleNameInput}
+                        />
+                    </div>
+                    <p>{inputErrors.name}</p>
+                    <div>
+                        <TextField label="E-mail"
+                            className="form-email"
+                            id="email"
+                            type="text"
+                            value={inputValue.email}
+                            placeholder="Your email"
+                            onChange={handleEmailInput}
+                        />
+                    </div>
+                    <p>{inputErrors.email}</p>
+                    <div>
+                        <TextField label="Message"
+                            className="form-message"
+                            multiline
+                            type="text"
+                            value={inputValue.message}
+                            placeholder="What's your message for me?"
+                            onChange={handleMessageInput}
+
+                        />
+                    </div>
+                    <p>{inputErrors.message}</p>
+
+                    <Button variant="contained"
+                        endIcon={<SendIcon />}
+                        className="btn-submit"
+                        type="submit"> Send
+                    </Button>
+                </Box>
+            </Container>
+        </div>
     )
 }
 
