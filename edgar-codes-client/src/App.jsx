@@ -16,20 +16,15 @@ function App() {
     <>
       <CssBaseline />
       <Navbar />
-      <Container
-        sx={{
-          bgcolor: "primary.main",
-          color: "secondary.main"
-        }}>
-        <Box>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/projects" element={<Projects />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/contact" element={<Contact />} />
-          </Routes>
-        </Box>
-      </Container>
+
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/projects" element={<Projects />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
+      </Routes>
+
+
       <Routes>
         <Route path="*" element={<Footer />} />
       </Routes>

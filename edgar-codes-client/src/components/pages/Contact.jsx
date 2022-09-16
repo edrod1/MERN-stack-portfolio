@@ -4,18 +4,14 @@ import { Typography, Container, Box } from "@mui/material"
 
 const Contact = () => {
     return (
-        <Container >
-            <Typography sx={{ marginBottom: 5 }} variant="h3" align="center">Contact</Typography>
-            <Box>
-                <Box align="left" >
-                    <Typography variant="h6">"1 (347) 789-0449"</Typography>
-                    <Typography variant="h6">edgarx28@hotmail.com</Typography>
-                </Box>
-                <Box align="right">
-                    <Form />
-                </Box>
+        <>
+            <Box sx={{ backgroundColor: "primary.main2", color: "secondary.main" }}>
+                <Typography sx={{ padding: "5px 0 10px 0" }}
+                    variant="h3" align="center"
+                >Contact</Typography>
             </Box>
-        </Container>
+            <Form />
+        </>
     )
 }
 

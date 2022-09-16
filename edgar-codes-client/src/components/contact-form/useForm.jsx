@@ -1,6 +1,6 @@
 import { React, useState, useEffect } from 'react'
 import Validation from './validation';
-import { TextField, Typography, Box, CssBaseline, Container, Button } from "@mui/material"
+import { TextField, Typography, Box, Container, Button, Grid } from "@mui/material"
 import SendIcon from '@mui/icons-material/Send';
 
 
@@ -64,56 +64,73 @@ const Form = () => {
 
 
     return (
-        <div >
+        <Container align="center" sx={{ backgroundColor: "primary.light", maxWidth: "false" }}>
             {/* <pre>{JSON.stringify(inputValue, undefined, 2)}</pre> */}
             {Object.keys(inputErrors).length === 0 && isSubmit ? <Validation /> : null}
 
-            <Container maxWidth="sm"  >
-                <Box component="form" onSubmit={handleSubmit}>
-                    <div>
-                        <TextField
-                            label="Name"
-                            className="form-name"
-                            id="name"
-                            type="text"
-                            value={inputValue.name}
-                            placeholder="Enter name"
-                            onChange={handleNameInput}
-                        />
-                    </div>
-                    <p>{inputErrors.name}</p>
-                    <div>
-                        <TextField label="E-mail"
-                            className="form-email"
-                            id="email"
-                            type="text"
-                            value={inputValue.email}
-                            placeholder="Your email"
-                            onChange={handleEmailInput}
-                        />
-                    </div>
-                    <p>{inputErrors.email}</p>
-                    <div>
-                        <TextField label="Message"
-                            className="form-message"
-                            multiline
-                            type="text"
-                            value={inputValue.message}
-                            placeholder="What's your message for me?"
-                            onChange={handleMessageInput}
+            <Grid container columnSpacing={{ xs: 1, sm: 2, md: 3 }} xs={6} sx={{ borderRadius: '16px' }} component="form" onSubmit={handleSubmit}>
+                <Grid xs={6} sx={{
+                    display: "inline-block", maxWidth: "250px", padding: "5px 5px 10px 0"
+                }} >
+                    <Typography variant="subtitle2" >"1 (347) 789-0449"</Typography>
+                    <Typography variant="subtitle2" >edgarx28@hotmail.com</Typography>
+                    <Typography variant="subtitle2" >edgarx28@hotmail.com</Typography>
+                    <Typography variant="subtitle2" >edgarx28@hotmail.com</Typography>
+                    <Typography variant="subtitle2" >edgarx28@hotmail.com</Typography>
+                </Grid>
 
-                        />
-                    </div>
+
+                <Grid xs={6} sx={{ display: "inline-block", maxWidth: "250px", padding: "10px" }}>
+                    <TextField label="Name"
+                        className="form-name"
+                        id="name"
+                        type="text"
+                        value={inputValue.name}
+                        placeholder="Enter name"
+                        onChange={handleNameInput}
+                        color="primary"
+                        fullWidth="20px"
+                    />
+
+                    <p>{inputErrors.name}</p>
+
+                    <TextField label="E-mail"
+                        className="form-email"
+                        id="email"
+                        type="text"
+                        value={inputValue.email}
+                        placeholder="Your email"
+                        onChange={handleEmailInput}
+                        fullWidth="20px"
+
+                    />
+
+                    <p>{inputErrors.email}</p>
+
+                    <TextField label="Message"
+                        className="form-message"
+                        maxRows={4}
+                        fullWidth="20px"
+                        multiline
+                        type="text"
+                        value={inputValue.message}
+                        placeholder="What's your message for me?"
+                        onChange={handleMessageInput}
+                        align="right"
+                    />
+
                     <p>{inputErrors.message}</p>
 
                     <Button variant="contained"
+                        color="secondary"
                         endIcon={<SendIcon />}
                         className="btn-submit"
                         type="submit"> Send
                     </Button>
-                </Box>
-            </Container>
-        </div>
+                </Grid>
+            </Grid>
+
+        </Container>
     )
 }
 
