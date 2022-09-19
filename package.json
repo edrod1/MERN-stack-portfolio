@@ -1,0 +1,15 @@
+{
+  "scripts": {
+    "dev": "concurrently \"cd backend && npm run server\" \"cd frontend && npm start\" "
+  },
+  "dependencies": {
+    "@emotion/react": "^11.10.4",
+    "@emotion/styled": "^11.10.4",
+    "@mui/material": "^5.10.4",
+    "react-router-dom": "^6.3.0"
+  },
+  "devDependencies": {
+    "concurrently": "^7.4.0",
+    "eslint-plugin-react-hooks": "^4.6.0"
+  }
+}

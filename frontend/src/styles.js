@@ -1,4 +1,6 @@
 import { createTheme, colors } from '@mui/material';
+
+//css in js MUST be in camelCASE!
 const theme = createTheme({
     palette: {
         primary: {
@@ -8,12 +10,14 @@ const theme = createTheme({
         },
         secondary: {
             main: colors.purple[500],
-            main2: colors.purple[200]
+            two: colors.purple[200]
         },
         third: {
-            main: "#91E817",
+            main: colors.green[600],
         }
-    }
-})
 
-export default theme
+    },
+});
+
+
+export default theme;
