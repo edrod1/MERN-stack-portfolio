@@ -1,6 +1,6 @@
 import React from 'react'
 import Form from '../contact-form/useForm'
-import { Typography, Container, Box } from "@mui/material"
+import { Typography, Box } from "@mui/material"
 
 const Contact = () => {
     return (

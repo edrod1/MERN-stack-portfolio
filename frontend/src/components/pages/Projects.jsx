@@ -1,50 +1,59 @@
 
-import { Button, Card, CardActions, CardContent, CardMedia, Container, Grid, ThemeProvider, Typography } from '@mui/material'
-import React from 'react'
+import { Box, Container, Grid, ThemeProvider, Typography } from '@mui/material'
+import React, { useEffect } from 'react'
 import theme from '../../styles';
+// import { useAuthContext } from "../../hooks/useAuthContext"
 
+import ProjectDetails from './ProjectDetails';
+// import ProjectForm from './ProjectForm';
+import { useProjectsContext } from '../../hooks/useProjectsContext';
 
 const Projects = () => {
-    const cards = [0, 1, 2, 3, 4, 5]
+    const { projects, dispatch } = useProjectsContext()
+    // const { admin } = useAuthContext()
+
+    useEffect(() => {
+        const fetchProjects = async () => {
+            const response = await fetch("http://localhost:8080/api/projects"
+                // , {
+                //     headers: {
+                //         "Authorization": `Bearer ${admin.token}`
+                //     }
+                // }
+            )
+            const json = await response.json()
+
+            if (response.ok) {
+                dispatch({ type: "SET_PROJECTS", payload: json })
+            }
+
+        }
+
+        fetchProjects()
+
+
+    }, [dispatch])
+
+
     return (
         <>
             <ThemeProvider theme={theme}>
-                <Container align="center">
-                    <Typography variant="h3">Projects</Typography>
-                    <Typography variant="subtitle1" maxWidth="sm">Something nedds to go her to fill this spot describing what this page is all about for and potental employers or viewers.Something nedds to go her to fill this spot describing what this page is all about for and potental employers or viewers.</Typography>
-                </Container>
+
+                <Box sx={{ backgroundColor: "primary.main2", color: "secondary.main" }}>
+                    <Typography sx={{ padding: "5px 0 10px 0" }}
+                        variant="h3" align="center"
+                    >I'm Edgar</Typography>
+                </Box>
                 {/* -------------------------------------------------------------------------------- */}
+
                 <Container maxWidth="md" sx={{ padding: "20px 0" }}>
                     <Grid container spacing={4} >
-
-                        {cards.map(() => (
-                            <Grid item key={cards} xs={12} sm={6} md={4}>
-                                <Card sx={{
-                                    height: "100%",
-                                    display: "flex",
-                                    flexDirection: "column"
-                                }}  >
-                                    <CardMedia sx={{ paddingTop: "16:9" }}
-                                        component="img"
-                                        image="https://source.unsplash.com/random"
-
-                                    />
-                                    <CardContent sx={{ flexGrow: "1" }}>
-                                        <Typography variant="h5" color="secondary.main" id="title" gutterBottom>
-                                            Heading
-                                        </Typography>
-                                        <Typography varient="h6" id="discription">
-                                            media card content info
-                                        </Typography>
-                                    </CardContent>
-                                    <CardActions>
-                                        <Button size='sm' color="primary">Code</Button>
-                                    </CardActions>
-                                </Card>
-                            </Grid>
+                        {projects && projects.map((project) => (
+                            <ProjectDetails key={project._id} project={project} />
                         ))}
                     </Grid>
                 </Container>
+
             </ThemeProvider>
         </>
     )

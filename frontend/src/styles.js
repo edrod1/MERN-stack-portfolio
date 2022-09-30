@@ -5,11 +5,11 @@ const theme = createTheme({
     palette: {
         primary: {
             main: "#1791e8",
-            main2: colors.blue[200],
-            light: colors.blue[50]
+            main2: "#30E3CA",
+            light: "#E4F9F5"
         },
         secondary: {
-            main: colors.purple[500],
+            main: "#FFEEAF",
             two: colors.purple[200]
         },
         third: {

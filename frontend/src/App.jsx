@@ -1,17 +1,24 @@
-
 import React from "react";
+import { Route, Routes, Navigate } from "react-router-dom";
+import { CssBaseline } from "@mui/material"
+import { useAuthContext } from "./hooks/useAuthContext"
+
 import Navbar from "./components/Navbar";
 import About from "./components/pages/About";
 import Contact from "./components/pages/Contact";
 import Home from "./components/pages/Home";
 import Projects from "./components/pages/Projects";
-import { Route, Routes } from "react-router-dom";
+import AdminP from "./components/pages/AdminP";
 import Footer from "./components/Footer";
+import Login from "./components/pages/Login";
 
-import { Box, CssBaseline, Container } from "@mui/material"
+
+
 
 
 function App() {
+  const { admin } = useAuthContext()
+
   return (
     <>
       <CssBaseline />
@@ -22,6 +29,9 @@ function App() {
         <Route path="/projects" element={<Projects />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/login" element={!admin ? <Login /> : <Navigate to="/adminP" />} />
+        <Route path="/adminP" element={admin ? <AdminP /> : <Navigate to="/projects" />} />
+
       </Routes>
 
 
