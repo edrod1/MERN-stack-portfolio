@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import { useProjectsContext } from '../../hooks/useProjectsContext';
 import { useAuthContext } from '../../hooks/useAuthContext';
+import { Box, TextField, Typography } from '@mui/material';
+import AddCircleIcon from '@mui/icons-material/AddCircle';
 
 const ProjectForm = () => {
   const { dispatch } = useProjectsContext()
@@ -48,36 +50,50 @@ const ProjectForm = () => {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <h3>Add a New Project</h3>
+    <>
+      <Box sx={{ backgroundColor: "primary.main2", color: "secondary.main" }}>
+        <Typography sx={{ padding: "5px 0 10px 0" }}
+          variant="h3" align="center"
+        >Add New Project</Typography>
+      </Box>
 
-      <label>Title:</label>
-      <input
-        type="text"
-        onChange={(e) => setTitle(e.target.value)}
-        value={title}
-        className={emptyFields.includes("title") ? "error" : ""}
-      />
+      <form onSubmit={handleSubmit}>
+        <TextField
+          sx={{ padding: "10px" }}
+          label="Title"
+          placeholder="Title"
+          type="text"
+          onChange={(e) => setTitle(e.target.value)}
+          value={title}
+          className={emptyFields.includes("title") ? "error" : ""}
+        />
 
-      <label>Discription</label>
-      <input
-        type="text"
-        onChange={(e) => setDiscription(e.target.value)}
-        value={discription}
-        className={emptyFields.includes("discription") ? "error" : ""}
-      />
+        <label></label>
+        <TextField
+          sx={{ padding: "10px" }}
+          label="Discription"
+          placeholder="Discription"
+          type="text"
+          onChange={(e) => setDiscription(e.target.value)}
+          value={discription}
+          className={emptyFields.includes("discription") ? "error" : ""}
+        />
 
-      <label>Image</label>
-      <input
-        type="text"
-        onChange={(e) => setImage(e.target.value)}
-        value={image}
-        className={emptyFields.includes("image") ? "error" : ""}
-      />
+        <label></label>
+        <TextField
+          sx={{ padding: "10px" }}
+          label="Image"
+          placeholder="Image"
+          type="text"
+          onChange={(e) => setImage(e.target.value)}
+          value={image}
+          className={emptyFields.includes("image") ? "error" : ""}
+        />
 
-      <button>Add Project</button>
-      {error && <div className="error">{error}</div>}
-    </form>
+        <button><AddCircleIcon /></button>
+        {error && <div className="error">{error}</div>}
+      </form>
+    </>
   )
 }
 

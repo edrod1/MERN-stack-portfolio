@@ -1,4 +1,4 @@
-import { Container, TextField, Typography, Box, FormControl, FormControlLabel } from "@mui/material"
+import { Container, TextField, Typography, Box } from "@mui/material"
 import { useState } from "react"
 import { useLogin } from "../../hooks/useLogin"
 
@@ -14,8 +14,8 @@ const Login = () => {
     return (
         <>
             <Box sx={{ backgroundColor: "primary.main2", color: "secondary.main" }}>
-                <Typography sx={{ padding: "5px 0 10px 0" }}
-                    variant="h3" align="center"
+                <Typography sx={{ padding: "10px 0 0 0" }}
+                    variant="h3" align="center" fontFamily="Chilanka"
                 >Admin</Typography>
             </Box>
 

@@ -26,26 +26,21 @@ const Projects = () => {
             if (response.ok) {
                 dispatch({ type: "SET_PROJECTS", payload: json })
             }
-
         }
-
         fetchProjects()
-
-
     }, [dispatch])
 
 
     return (
         <>
             <ThemeProvider theme={theme}>
-
                 <Box sx={{ backgroundColor: "primary.main2", color: "secondary.main" }}>
-                    <Typography sx={{ padding: "5px 0 10px 0" }}
+                    <Typography sx={{ padding: "10px 0 0 0" }}
                         variant="h3" align="center"
-                    >I'm Edgar</Typography>
+                    >Projects</Typography>
                 </Box>
+                <Typography variant="h4" align="center" margin="0 35%" color="third.main">Here you'll find some of the great applications created to cater the online community.</Typography>
                 {/* -------------------------------------------------------------------------------- */}
-
                 <Container maxWidth="md" sx={{ padding: "20px 0" }}>
                     <Grid container spacing={4} >
                         {projects && projects.map((project) => (
@@ -53,7 +48,6 @@ const Projects = () => {
                         ))}
                     </Grid>
                 </Container>
-
             </ThemeProvider>
         </>
     )

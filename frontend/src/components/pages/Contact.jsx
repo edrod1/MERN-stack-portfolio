@@ -6,7 +6,7 @@ const Contact = () => {
     return (
         <>
             <Box sx={{ backgroundColor: "primary.main2", color: "secondary.main" }}>
-                <Typography sx={{ padding: "5px 0 10px 0" }}
+                <Typography sx={{ padding: "10px 0 0 0" }}
                     variant="h3" align="center"
                 >Contact</Typography>
             </Box>

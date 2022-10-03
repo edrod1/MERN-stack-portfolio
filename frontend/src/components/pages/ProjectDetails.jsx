@@ -2,6 +2,7 @@ import { Button, Card, CardActions, CardContent, CardMedia, Grid, Typography } f
 import React from 'react'
 import { useProjectsContext } from "../../hooks/useProjectsContext"
 import { useAuthContext } from '../../hooks/useAuthContext'
+import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 
 const ProjectDetails = ({ project }) => {
     const { dispatch } = useProjectsContext()
@@ -41,7 +42,7 @@ const ProjectDetails = ({ project }) => {
                 <CardActions>
                     <Button size='sm' color="primary">Code</Button>
                 </CardActions>
-                <span onClick={handleClick}>~</span>
+                <span onClick={handleClick} className="deleteP"><DeleteForeverIcon /></span>
             </Card>
 
         </Grid>
