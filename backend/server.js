@@ -40,8 +40,12 @@ mongoose.connect(process.env.MONGO_URI)
     .catch((err) => console.log("DB CONNECTION ERROR", err));
 
 
-// port
-const port = process.env.PORT
+
+let port = process.env.PORT;
+if (port == null || port == "") {
+    port = 8080;
+}
+
 // listener for request
 app.listen(port, () =>
     console.log(`Server is running on port ${port}`)
