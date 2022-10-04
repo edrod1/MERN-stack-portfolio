@@ -68,7 +68,7 @@ const ProjectForm = () => {
           className={emptyFields.includes("title") ? "error" : ""}
         />
 
-        <label></label>
+
         <TextField
           sx={{ padding: "10px" }}
           label="Discription"
@@ -79,10 +79,11 @@ const ProjectForm = () => {
           className={emptyFields.includes("discription") ? "error" : ""}
         />
 
-        <label></label>
+
         <TextField
           sx={{ padding: "10px" }}
           label="Image"
+
           placeholder="Image"
           type="text"
           onChange={(e) => setImage(e.target.value)}

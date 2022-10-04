@@ -6,7 +6,7 @@ const Footer = () => {
     const currentYear = new Date().getFullYear()
     return (
         <Paper align="center" sx={{
-            paddingTop: "10px",
+            mt: "10px",
             backgroundColor: "primary.main", color: "secondary.main",
             width: '100%',
             position: 'fixed',

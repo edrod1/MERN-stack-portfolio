@@ -41,8 +41,8 @@ const Projects = () => {
                 </Box>
                 <Typography variant="h4" align="center" margin="0 35%" color="third.main">Here you'll find some of the great applications created to cater the online community.</Typography>
                 {/* -------------------------------------------------------------------------------- */}
-                <Container maxWidth="md" sx={{ padding: "20px 0" }}>
-                    <Grid container spacing={4} >
+                <Container maxWidth="xl" sx={{ padding: "20px 0" }}>
+                    <Grid container spacing={4} margin="0 0 50px 0" >
                         {projects && projects.map((project) => (
                             <ProjectDetails key={project._id} project={project} />
                         ))}

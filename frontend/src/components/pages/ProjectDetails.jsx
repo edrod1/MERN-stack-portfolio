@@ -32,15 +32,15 @@ const ProjectDetails = ({ project }) => {
                     component="img"
                     image={project.image} />
                 <CardContent sx={{ flexGrow: "1" }}>
-                    <Typography variant="h5" color="primary.main2" gutterBottom>
+                    <Typography variant="h6" color="primary.main2" gutterBottom>
                         {project.title}
                     </Typography>
-                    <Typography varient="h6">
+                    <Typography varient="h5">
                         {project.discription}
                     </Typography>
                 </CardContent>
                 <CardActions>
-                    <Button size='sm' color="primary">Code</Button>
+                    <Button size='sm' color="primary" href='https://github.com/edrod1?tab=repositories'>Code</Button>
                 </CardActions>
                 <span onClick={handleClick} className="deleteP"><DeleteForeverIcon /></span>
             </Card>

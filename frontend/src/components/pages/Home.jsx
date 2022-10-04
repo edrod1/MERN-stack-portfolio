@@ -1,6 +1,7 @@
 import { Box, Typography } from '@mui/material'
 import Image from 'mui-image'
 import mernPic from "../images/mernPic.png"
+
 import React from 'react'
 
 const Home = () => {
@@ -22,20 +23,11 @@ const Home = () => {
                 </Box>
 
                 <Box sx={{}} maxWidth="lg">
-                    <Typography variant="h5" mt="20px" padding="0 5px 5px 10px" >I am a Full Stack Web Developer from York, PA with a passion in creating interactive applications and experiences online.
-
-
+                    <Typography variant="h5" mt="20px" padding="0 5px 5px 10px" >I am a 24 year old Full Stack Web Developer from York, PA with a passion in creating interactive applications and experiences online.
                     </Typography>
                 </Box>
             </Box>
-
-
-
         </Box>
-
-
-
-
     )
 }
 
