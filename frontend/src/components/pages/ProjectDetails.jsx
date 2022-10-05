@@ -12,7 +12,7 @@ const ProjectDetails = ({ project }) => {
         if (!admin) {
             return
         }
-        const response = await fetch("http://localhost:8080/api/projects/" + project._id, {
+        const response = await fetch("http://localhost:5000/api/projects/" + project._id, {
             method: "DELETE",
             headers: {
                 "Authorization": `Bearer ${admin.token}`

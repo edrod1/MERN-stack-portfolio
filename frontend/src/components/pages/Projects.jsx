@@ -14,7 +14,7 @@ const Projects = () => {
 
     useEffect(() => {
         const fetchProjects = async () => {
-            const response = await fetch("http://localhost:8080/api/projects"
+            const response = await fetch("http://localhost:5000/api/projects"
                 // , {
                 //     headers: {
                 //         "Authorization": `Bearer ${admin.token}`

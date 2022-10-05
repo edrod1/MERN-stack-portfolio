@@ -24,7 +24,7 @@ const ProjectForm = () => {
 
     const project = { title, discription, image }
 
-    const response = await fetch("http://localhost:8080/api/projects", {
+    const response = await fetch("http://localhost:5000/api/projects", {
       method: "POST",
       body: JSON.stringify(project),
       headers: {

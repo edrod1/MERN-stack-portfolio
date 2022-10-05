@@ -1,6 +1,6 @@
 // import modules
 require('dotenv').config();
-
+const path = require("path");
 const express = require('express');
 const mongoose = require('mongoose');
 const morgan = require('morgan');
@@ -27,7 +27,7 @@ app.use((req, res, next) => {
 app.use(express.json());
 
 // app.use(bodyParser.urlencoded({ extended: true }));
-app.use(cors({ origin: "http://localhost:3000", credentials: true }));
+app.use(cors({ origin: "http://localhost:5000", credentials: true }));
 
 // routes
 app.use("/api/projects", projectRoutes)
@@ -41,11 +41,20 @@ mongoose.connect(process.env.MONGO_URI)
 
 
 
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 5000;
 
 if (process.env.NODE_ENV === "production") {
-    app.use(express.static("frontend/build"));
+    app.use(express.static(path.join(__dirname, "../frontend/build")));
+
+    app.get("*", (req, res) => {
+        res.sendFile(path.join(__dirname, "frontend", "build", "index.html"))
+    })
+} else {
+    app.get("/", (req, res) => {
+        res.send("Api running");
+    })
 }
+
 // listener for request
 app.listen(PORT, () =>
     console.log(`Server is running on port ${PORT}`)
