@@ -5,7 +5,7 @@
     "heroku-postbuild": "npm run install-frontend && npm run build",
     "start": "node server.js",
     "frontend": "cd frontend && npm start",
-    "develop": "concurrently --kill-others-on-fail \"nodemon server.js --prefix backend\" \"npm run start --prefix frontend\""
+    "develop": "concurrently \"cd backend && nodemon server.js\" \"cd frontend && npm run frontend\""
   },
   "dependencies": {
     "@emotion/react": "^11.10.4",
