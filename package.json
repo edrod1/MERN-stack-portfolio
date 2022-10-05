@@ -1,6 +1,11 @@
 {
   "scripts": {
-    "start": "node server.js"
+    "start": "concurrently --kill-others-on-fail \"npm run backend\" \"npm run start --prefix frontend\"",
+    "backend": "nodemon server.js",
+    "build": "cd frontend && npm run build",
+    "install-frontend": "cd frontend && npm install",
+    "heroku-postbuild": "npm run install-frontend && npm run build",
+    "develop": "concurrently --kill-others-on-fail \"npm run backend\" \"npm run start --prefix frontend\""
   },
   "dependencies": {
     "@emotion/react": "^11.10.4",

@@ -41,12 +41,12 @@ mongoose.connect(process.env.MONGO_URI)
 
 
 
-let port = process.env.PORT;
-if (port == null || port == "") {
-    port = 8080;
-}
+const PORT = process.env.PORT || 8080;
 
+if (process.env.NODE_ENV === "production") {
+    app.use(express.static("frontend/build"));
+}
 // listener for request
-app.listen(port, () =>
-    console.log(`Server is running on port ${port}`)
+app.listen(PORT, () =>
+    console.log(`Server is running on port ${PORT}`)
 );
