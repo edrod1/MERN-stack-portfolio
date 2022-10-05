@@ -3,7 +3,7 @@
     "build": "cd frontend && npm run build",
     "install-frontend": "cd frontend && npm install",
     "heroku-postbuild": "npm run install-frontend && npm run build",
-    "start": "node server.js",
+    "start": "cd backend && node server.js",
     "frontend": "cd frontend && npm start",
     "develop": "concurrently \"cd backend && nodemon server.js\" \"cd frontend && npm run frontend\""
   },
